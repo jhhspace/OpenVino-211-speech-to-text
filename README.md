@@ -33,5 +33,7 @@ ITE College West X Busan Computer Science High School Social Impact Project
 
 # Credits
 [BrainAI Co. Ltd](https://brainai.kr/)
+
 [Busan Computer Science High School](https://school.busanedu.net/pcs-h/main.do)
+
 [ITE College West](https://www.ite.edu.sg/colleges/ite-college-west/)
