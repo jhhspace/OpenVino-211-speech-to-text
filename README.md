@@ -12,7 +12,7 @@ This Speech to Text AI acts as a budget friendly substitute for conventional hea
 - In 2022, South Korea recorded the highest number of people with hearing disabilities since 2003, reaching a whopping __425.2 thousand__, with a continuous upwards trend since 2015.
 - As of 13 September 2022, around __500,000__ Singaporeans experienced hearing impairment and permanent deaf.
 - Currently, __430 million__ people needs rehabilitation due to just hearing loss.
-- It is also predicted that __by 2050__, __700 million (1/10 people) will have hearing impairment.
+- It is also predicted that __by 2050__, __700 million (1/10 people)__ will have hearing impairment.
 [Source](https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss)
 
 # Pre-requisite
