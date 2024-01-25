@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureSpeak - Live Speech Recognition</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('../static/background3.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        h4 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #4caf50;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border: 1px solid #4caf50;
+            border-radius: 5px;
+            color: #fff;
+        }
+        
+        h3 {
+            font-size: 1.2em;
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border: 1px solid #4caf50;
+            border-radius: 5px;
+            color: #fff;
+        }
+        #micStatus {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #4caf50;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>FutureSpeak - Live Speech Recognition<br>FutureSpeak - 실시간 음성 인식</h1>
+    <form id="liveSpeechForm">
+        <button id="toggleMicBtn" type="button" onclick="toggleSpeechRecognition()">
+            Start Live Speech Recognition<br>실시간 음성 인식 시작
+        </button>
+        <p id="micStatus">Microphone Status (마이크 상태): <span id="micStatusLabel">Off</span></p>
+        <br>
+        <h7>Please allow up to 3 second delay after starting the microphone<br>Note: This AI currently only supports English (EN)</h7>
+    </form>
+    <h4>Spoken Text (음성 텍스트):</h4>
+    <h3 id="spokenText"></h3>
+
+    <script>
+        var isMicOn = false;
+    
+        function toggleSpeechRecognition() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/toggle_microphone", true);
+    
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        var micStatus = JSON.parse(xhr.responseText);
+                        isMicOn = micStatus.mic_status;
+                        updateMicStatus(isMicOn);
+    
+                        // If microphone is on, initiate transcription
+                        if (isMicOn) {
+                            // Set result string to an empty string when starting live speech
+                            document.getElementById('spokenText').innerHTML = "";
+                            startTranscription();
+                        }
+                    } else {
+                        var errorMessage = "Error toggling microphone. Please try again.";
+                        document.getElementById('micStatus').innerHTML = errorMessage;
+                    }
+                }
+            };
+    
+            xhr.send();
+        }
+    
+        function updateMicStatus(isMicOn) {
+            var micStatusLabel = document.getElementById('micStatusLabel');
+            micStatusLabel.innerText = isMicOn ? 'On' : 'Off';
+            document.getElementById('micStatus').innerHTML = 'Microphone Status (마이크 상태): <span id="micStatusLabel">' + (isMicOn ? 'On' : 'Off') + '</span>';
+        }
+    
+        function startTranscription() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/get_transcription", true);
+    
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        var spokenText = xhr.responseText;
+                        document.getElementById('spokenText').innerHTML = spokenText;
+                    } else {
+                        var errorMessage = "Error: woi, cannot understand your voice la deh"; //+ xhr.statusText; // Display the actual error message
+                        document.getElementById('spokenText').innerHTML = errorMessage;
+                    }
+                }
+            };
+    
+            xhr.send();
+        }
+    </script>
+
+        <br>
+        <br>
+        <h5>Check out our Audio speech-to-text service: <a href="/">Audio to Text</a></h5>
+        <h5>오디오 음성-텍스트 서비스를 확인해보세요: <a href="/">오디오를 텍스트로</a></h5>
+</body>
+</html>

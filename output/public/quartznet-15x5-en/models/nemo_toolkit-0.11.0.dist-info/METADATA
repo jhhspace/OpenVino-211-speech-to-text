@@ -1,0 +1,246 @@
+Metadata-Version: 2.1
+Name: nemo-toolkit
+Version: 0.11.0
+Summary: NEMO core package. Necessary for all collections
+Home-page: https://github.com/nvidia/nemo
+Author: NVIDIA
+Author-email: nemo-toolkit@nvidia.com
+Maintainer: NVIDIA
+Maintainer-email: nemo-toolkit@nvidia.com
+License: Apache2
+Download-URL: https://github.com/NVIDIA/NeMo/releases
+Keywords: deep learning,machine learning,gpu,NLP,NeMo,nvidia,pytorch,torch,tts,speech,language
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Environment :: Console
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.18.2)
+Requires-Dist: onnx
+Requires-Dist: onnxruntime
+Requires-Dist: pandas
+Requires-Dist: python-dateutil
+Requires-Dist: tensorboardX
+Requires-Dist: tensorboard
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: wget
+Requires-Dist: wrapt
+Requires-Dist: ruamel.yaml
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Provides-Extra: all
+Requires-Dist: boto3 ; extra == 'all'
+Requires-Dist: frozendict ; extra == 'all'
+Requires-Dist: h5py ; extra == 'all'
+Requires-Dist: html2text ; extra == 'all'
+Requires-Dist: inflect ; extra == 'all'
+Requires-Dist: ipdb ; extra == 'all'
+Requires-Dist: ipython[all] ; extra == 'all'
+Requires-Dist: jupyterlab ; extra == 'all'
+Requires-Dist: kaldi-io ; extra == 'all'
+Requires-Dist: librosa ; extra == 'all'
+Requires-Dist: marshmallow ; extra == 'all'
+Requires-Dist: matplotlib ; extra == 'all'
+Requires-Dist: nltk ; extra == 'all'
+Requires-Dist: num2words ; extra == 'all'
+Requires-Dist: onnx ; extra == 'all'
+Requires-Dist: pandas ; extra == 'all'
+Requires-Dist: pillow (>=4.3.0) ; extra == 'all'
+Requires-Dist: progressbar ; extra == 'all'
+Requires-Dist: requests ; extra == 'all'
+Requires-Dist: ruamel.yaml ; extra == 'all'
+Requires-Dist: sentencepiece ; extra == 'all'
+Requires-Dist: six (>=1.14) ; extra == 'all'
+Requires-Dist: sox ; extra == 'all'
+Requires-Dist: tqdm ; extra == 'all'
+Requires-Dist: unidecode ; extra == 'all'
+Requires-Dist: wget ; extra == 'all'
+Requires-Dist: youtokentome ; extra == 'all'
+Requires-Dist: black ; extra == 'all'
+Requires-Dist: isort[requirements] (<5) ; extra == 'all'
+Requires-Dist: onnxruntime ; extra == 'all'
+Requires-Dist: parameterized ; extra == 'all'
+Requires-Dist: pytest ; extra == 'all'
+Requires-Dist: pytest-runner ; extra == 'all'
+Requires-Dist: sphinx ; extra == 'all'
+Requires-Dist: sphinxcontrib-bibtex ; extra == 'all'
+Requires-Dist: wrapt ; extra == 'all'
+Requires-Dist: braceexpand ; extra == 'all'
+Requires-Dist: editdistance ; extra == 'all'
+Requires-Dist: packaging ; extra == 'all'
+Requires-Dist: soundfile ; extra == 'all'
+Requires-Dist: torch-stft ; extra == 'all'
+Requires-Dist: webdataset ; extra == 'all'
+Requires-Dist: kaldi-python-io ; extra == 'all'
+Requires-Dist: librosa (<=0.7.2) ; extra == 'all'
+Requires-Dist: numba (<=0.48) ; extra == 'all'
+Requires-Dist: pillow ; extra == 'all'
+Requires-Dist: torchvision ; extra == 'all'
+Requires-Dist: torchtext ; extra == 'all'
+Requires-Dist: transformers (>=2.11.0) ; extra == 'all'
+Requires-Dist: numpy ; extra == 'all'
+Requires-Dist: rapidfuzz ; extra == 'all'
+Requires-Dist: gdown ; extra == 'all'
+Requires-Dist: megatron-lm ; extra == 'all'
+Requires-Dist: rouge-score ; extra == 'all'
+Requires-Dist: pypinyin ; extra == 'all'
+Requires-Dist: attrdict ; extra == 'all'
+Provides-Extra: asr
+Requires-Dist: braceexpand ; extra == 'asr'
+Requires-Dist: editdistance ; extra == 'asr'
+Requires-Dist: frozendict ; extra == 'asr'
+Requires-Dist: inflect ; extra == 'asr'
+Requires-Dist: kaldi-io ; extra == 'asr'
+Requires-Dist: marshmallow ; extra == 'asr'
+Requires-Dist: packaging ; extra == 'asr'
+Requires-Dist: num2words ; extra == 'asr'
+Requires-Dist: ruamel.yaml ; extra == 'asr'
+Requires-Dist: soundfile ; extra == 'asr'
+Requires-Dist: sox ; extra == 'asr'
+Requires-Dist: torch-stft ; extra == 'asr'
+Requires-Dist: unidecode ; extra == 'asr'
+Requires-Dist: webdataset ; extra == 'asr'
+Requires-Dist: kaldi-python-io ; extra == 'asr'
+Requires-Dist: librosa (<=0.7.2) ; extra == 'asr'
+Requires-Dist: numba (<=0.48) ; extra == 'asr'
+Provides-Extra: cv
+Requires-Dist: pillow ; extra == 'cv'
+Requires-Dist: torchvision ; extra == 'cv'
+Provides-Extra: docker
+Requires-Dist: boto3 ; extra == 'docker'
+Requires-Dist: frozendict ; extra == 'docker'
+Requires-Dist: h5py ; extra == 'docker'
+Requires-Dist: html2text ; extra == 'docker'
+Requires-Dist: inflect ; extra == 'docker'
+Requires-Dist: ipdb ; extra == 'docker'
+Requires-Dist: ipython[all] ; extra == 'docker'
+Requires-Dist: jupyterlab ; extra == 'docker'
+Requires-Dist: kaldi-io ; extra == 'docker'
+Requires-Dist: librosa ; extra == 'docker'
+Requires-Dist: marshmallow ; extra == 'docker'
+Requires-Dist: matplotlib ; extra == 'docker'
+Requires-Dist: nltk ; extra == 'docker'
+Requires-Dist: num2words ; extra == 'docker'
+Requires-Dist: onnx ; extra == 'docker'
+Requires-Dist: pandas ; extra == 'docker'
+Requires-Dist: pillow (>=4.3.0) ; extra == 'docker'
+Requires-Dist: progressbar ; extra == 'docker'
+Requires-Dist: requests ; extra == 'docker'
+Requires-Dist: ruamel.yaml ; extra == 'docker'
+Requires-Dist: sentencepiece ; extra == 'docker'
+Requires-Dist: six (>=1.14) ; extra == 'docker'
+Requires-Dist: sox ; extra == 'docker'
+Requires-Dist: tqdm ; extra == 'docker'
+Requires-Dist: unidecode ; extra == 'docker'
+Requires-Dist: wget ; extra == 'docker'
+Requires-Dist: youtokentome ; extra == 'docker'
+Provides-Extra: nlp
+Requires-Dist: boto3 ; extra == 'nlp'
+Requires-Dist: h5py ; extra == 'nlp'
+Requires-Dist: matplotlib ; extra == 'nlp'
+Requires-Dist: sentencepiece ; extra == 'nlp'
+Requires-Dist: torchtext ; extra == 'nlp'
+Requires-Dist: transformers (>=2.11.0) ; extra == 'nlp'
+Requires-Dist: unidecode ; extra == 'nlp'
+Requires-Dist: youtokentome ; extra == 'nlp'
+Requires-Dist: numpy ; extra == 'nlp'
+Requires-Dist: tqdm ; extra == 'nlp'
+Requires-Dist: rapidfuzz ; extra == 'nlp'
+Requires-Dist: gdown ; extra == 'nlp'
+Requires-Dist: megatron-lm ; extra == 'nlp'
+Requires-Dist: inflect ; extra == 'nlp'
+Requires-Dist: rouge-score ; extra == 'nlp'
+Provides-Extra: simple_gan
+Requires-Dist: matplotlib ; extra == 'simple_gan'
+Provides-Extra: test
+Requires-Dist: black ; extra == 'test'
+Requires-Dist: isort[requirements] (<5) ; extra == 'test'
+Requires-Dist: onnxruntime ; extra == 'test'
+Requires-Dist: parameterized ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-runner ; extra == 'test'
+Requires-Dist: ruamel.yaml ; extra == 'test'
+Requires-Dist: sphinx ; extra == 'test'
+Requires-Dist: sphinxcontrib-bibtex ; extra == 'test'
+Requires-Dist: wrapt ; extra == 'test'
+Requires-Dist: wget ; extra == 'test'
+Provides-Extra: tts
+Requires-Dist: matplotlib ; extra == 'tts'
+Requires-Dist: pypinyin ; extra == 'tts'
+Requires-Dist: attrdict ; extra == 'tts'
+Requires-Dist: braceexpand ; extra == 'tts'
+Requires-Dist: editdistance ; extra == 'tts'
+Requires-Dist: frozendict ; extra == 'tts'
+Requires-Dist: inflect ; extra == 'tts'
+Requires-Dist: kaldi-io ; extra == 'tts'
+Requires-Dist: marshmallow ; extra == 'tts'
+Requires-Dist: packaging ; extra == 'tts'
+Requires-Dist: num2words ; extra == 'tts'
+Requires-Dist: ruamel.yaml ; extra == 'tts'
+Requires-Dist: soundfile ; extra == 'tts'
+Requires-Dist: sox ; extra == 'tts'
+Requires-Dist: torch-stft ; extra == 'tts'
+Requires-Dist: unidecode ; extra == 'tts'
+Requires-Dist: webdataset ; extra == 'tts'
+Requires-Dist: kaldi-python-io ; extra == 'tts'
+Requires-Dist: librosa (<=0.7.2) ; extra == 'tts'
+Requires-Dist: numba (<=0.48) ; extra == 'tts'
+Requires-Dist: boto3 ; extra == 'tts'
+Requires-Dist: h5py ; extra == 'tts'
+Requires-Dist: sentencepiece ; extra == 'tts'
+Requires-Dist: torchtext ; extra == 'tts'
+Requires-Dist: transformers (>=2.11.0) ; extra == 'tts'
+Requires-Dist: youtokentome ; extra == 'tts'
+Requires-Dist: numpy ; extra == 'tts'
+Requires-Dist: tqdm ; extra == 'tts'
+Requires-Dist: rapidfuzz ; extra == 'tts'
+Requires-Dist: gdown ; extra == 'tts'
+Requires-Dist: megatron-lm ; extra == 'tts'
+Requires-Dist: rouge-score ; extra == 'tts'
+
+NeMo (**Ne**ural **Mo**dules) is a toolkit for creating AI applications built around **neural modules**, conceptual blocks of neural networks that take *typed* inputs and produce *typed* outputs.
+
+**NeMo Core** provides the fundamental building blocks for all neural models and NeMo's type system.
+
+Core Principles
+---------------
+NEMO is built around these principles:
+
+* Neural Module is a block that computes a set of outputs from a set of inputs.
+    * Think of it as an abstraction between a layer and a neural network.
+    * Examples: pre-trained language model, acoustic model, encoder, decoder, etc.
+* NeMo-based application is a DAG of :class:`NeuralModule<nemo.core.neural_modules.NeuralModule>` objects connected together via **typed** *input* and *output* ports.
+    * :class:`NmTensor<nemo.core.neural_types.NmTensor>` objects flow between modules from port to port.
+    * *Lazy execution* model. First, user defines activation flow graph. Then, calls *action* (such as training). Actual computation happen only after action is called.
+* The input and output ports of each neural module and :class:`NmTensor<nemo.core.neural_types.NmTensor>` objects all have *Neural Type* - :class:`NeuralType<nemo.core.neural_types.NeuralType>`.
+* :class:`NeuralType<nemo.core.neural_types.NeuralType>` the semantics, axis order, and dimensions of a tensor and more.
+* Domain or module-specific *Callbacks* are used for evaluations and inspecting training performance.
+
+
+Built to run on GPUs
+--------------------
+NeMo Core provides:
+
+* Mixed-precision training using Tensor Cores on NVIDIA's Volta and Turing GPUs
+* Distributed training
+* Distributed evaluation
+
+

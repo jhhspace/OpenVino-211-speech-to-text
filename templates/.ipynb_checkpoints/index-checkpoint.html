@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureSpeak - Speech-to-Text</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('../static/background3.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #4caf50;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #4caf50;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        #dropArea {
+            border: 2px dashed #4caf50;
+            padding: 20px;
+            width: 300px;
+            cursor: pointer;
+        }
+
+        #dropArea.highlight {
+            background-color: #4caf50;
+        }
+
+        #processingStatus {
+            margin-top: 10px;
+            color: #4caf50;
+        }
+
+        #processingStatus.processing {
+            color: #ff9800;
+        }
+
+        #submitBtn:disabled {
+            background-color: #b2b2b2;
+            cursor: not-allowed;
+        }
+
+        #selectedFileName {
+            margin-top: 10px;
+            color: #4caf50;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function disableSubmitButton() {
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('processingStatus').innerHTML = 'Processing...';
+            document.getElementById('processingStatus').classList.add('processing');
+        }
+
+        function enableSubmitButton() {
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('processingStatus').innerHTML = '';
+            document.getElementById('processingStatus').classList.remove('processing');
+        }
+
+        function handleFileChange() {
+            var fileInput = document.getElementById('fileInput');
+            var selectedFileName = document.getElementById('selectedFileName');
+
+            if (fileInput.files.length > 0) {
+                selectedFileName.innerHTML = 'Selected File: ' + fileInput.files[0].name;
+            } else {
+                selectedFileName.innerHTML = '';
+            }
+        }
+
+        function resetResult() {
+            var resultElement = document.getElementById('result');
+            if (resultElement) {
+                resultElement.innerHTML = ''; // Set result to an empty string
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>FutureSpeak - Speech-to-Text<br>FutureSpeak - 음성을 텍스트로 변환</h1>
+    <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" onsubmit="resetResult(); disableSubmitButton();">
+        <div id="dropArea" onclick="document.getElementById('fileInput').click()">
+            <p>Click me to select an audio file.<br>오디오 파일을 선택하려면 나를 클릭하세요.</p>
+            <input type="file" id="fileInput" name="file" accept=".aiff, .au, .avr, .caf, .flac, .htk, .svx, .mat4, .mat5, .mpc2k, .ogg, .paf, .pvf, .raw, .rf64, .sd2, .sds, .ircam, .voc, .w64, .wav, .nist, .wavex, .wve, .xi" required onchange="handleFileChange()">
+        </div>
+        <br>
+        <button id="submitBtn" type="submit">Upload and Process<br>업로드 및 처리</button>
+        <div id="selectedFileName"></div>
+    </form>
+    <h4>Average waiting time: 15s - 30s<br>평균 대기 시간: 15초 - 30초</h4>
+    <p id="processingStatus"></p>
+
+    {% if result %}
+        <div id="result">
+            <h2>Result (결과):</h2>
+            <p>{{ result }}</p>
+        </div>
+    {% endif %}
+    <br>
+    <br>
+    <h5>Check out our live speech-to-text service: <a href="/livespeech">LiveSpeech</a></h5>
+    <h5>실시간 음성-문자 서비스를 확인해보세요: <a href="/livespeech">실시간 연설</a></h5>
+</body>
+</html>
